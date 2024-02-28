@@ -69,7 +69,7 @@ const Login = () => {
           </Alert>
         )}
         <Form.Group className="mb-2" controlId="Mobile">
-          <Form.Label>Mobile</Form.Label>
+          <Form.Label>Mobile Number</Form.Label>
           <Form.Control
             type="text"
             value={inputMobile}
