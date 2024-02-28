@@ -3,7 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import "./Register.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-
+import axios from "axios";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +19,8 @@ const Register = () => {
     state: "",
     district: "",
     city: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -29,17 +31,41 @@ const Register = () => {
     });
   };
 
-
   const handleDateChange = (date) => {
     setFormData({
       ...formData,
       dateOfBirth: date,
     });
   };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData); 
+    if (formData.password !== formData.confirmPassword) {
+      console.error("Passwords do not match");
+      return;
+    }
+    try {
+      const response = await axios.post("http://localhost:3001/", formData);
+      console.log("API Response:", response.data);
+      
+      setFormData({
+        title: "",
+        gender: "",
+        firstName: "",
+        lastName: "",
+        mobileNumber: "",
+        dateOfBirth: null,
+        emailAddress: "",
+        country: "",
+        address: "",
+        state: "",
+        district: "",
+        city: "",
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -220,10 +246,31 @@ const Register = () => {
             <option value="City 1">City 1</option>
             <option value="City 2">City 2</option>
             <option value="City 3">City 3</option>
-            {/* Add more options as needed */}
+           
           </Form.Control>
         </Form.Group>
 
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="confirmPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+        </Form.Group>
 
         <Button variant="primary" type="submit">
           Save
