@@ -15,8 +15,7 @@ const Login = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      // Make API call
-      const response = await fetch("YOUR_API_ENDPOINT", {
+      const response = await fetch("http://localhost:3000/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,26 +26,19 @@ const Login = () => {
         }),
       });
       const data = await response.json();
-      console.log(data); // Log the response from the API
-
-      // Handle success or failure response from API
+      console.log(data);
       if (response.ok) {
-        // Handle success, maybe set token in localStorage and redirect user
       } else {
-        // Handle failure, show error message
         setShow(true);
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle error, show error message
       setShow(true);
     }
     setLoading(false);
   };
 
-  // Function to handle forgot password form submission
   const handleForgotPassword = async () => {
-    // Implement logic to handle forgot password, e.g., send reset password link or OTP
     console.log("Forgot password logic here");
   };
 
@@ -55,12 +47,10 @@ const Login = () => {
       className="log-in__wrapper"
       style={{ backgroundImage: `url(${BackgroundImage})` }}
     >
-      {/* Overlay */}
+     
       <div className="log-in__backdrop"></div>
-      
-      {/* Form */}
+  
       <Form className="shadow p-4 bg-blur rounded" onSubmit={handleSubmit}>
-        {/* Header */}
         <img
           className="img-thumbnail mx-auto d-block mb-2"
           src={Logo}
@@ -122,7 +112,7 @@ const Login = () => {
         <Button 
             className="text-muted px-0 mt-2" 
             variant="link"
-            onClick={() => { /* Logic to navigate to the registration page */ }}
+            onClick={() => {  }}
           >
             Create New Account
           </Button>
@@ -141,16 +131,15 @@ const Login = () => {
       {/* Forgot Password Form */}
       {showForgotPassword && (
         <Form className="shadow p-4 bg-blur rounded" onSubmit={handleForgotPassword}>
-          {/* Header */}
+       
           <div className="h4 mb-2 text-center">Forgot Password</div>
-          {/* Implement forgot password form inputs here */}
+         
           <Form.Group className="mb-2" controlId="mobile">
             <Form.Label>Enter your mobile number</Form.Label>
             <Form.Control
               type="text"
               placeholder="Mobile"
               required
-              // onChange={(e) => handleMobileChange(e.target.value)}
             />
           </Form.Group>
           <Button className="w-100" variant="primary" type="submit">
