@@ -1,0 +1,65 @@
+.log-in__wrapper {
+  color: white;
+  font-size: 14px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+d-grid justify-content-end{
+  background:white;
+  color: white;
+ 
+}
+.log-in__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.log-in__wrapper form {
+  width: 24rem;
+  max-width: 90%;
+  z-index: 1;
+  animation: showlogInForm 1s;
+}
+
+.log-in__wrapper form img {
+  width: 4rem;
+}
+
+.text-muted.px-0.mt-2 {
+  color: #f6f9fc; 
+  text-decoration: none;
+  font-size: 14px; 
+}
+
+.text-muted.px-0.mt-2:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.Button{
+  color: white;
+  background-color: blue;
+}
+@keyframes showlogInForm {
+  0%,
+  30% {
+    transform: translate(0, -150%);
+  }
+  70%,
+  90% {
+    transform: translate(0, 1rem);
+  }
+  80%,
+  100% {
+    transform: translate(0, 0);
+  }
+}

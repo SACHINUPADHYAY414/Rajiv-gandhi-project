@@ -1,0 +1,81 @@
+/* Styling for the container and background image */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 40%;
+  background-size:100%;
+  background-image: url("../../assets/images/background.png"); 
+  background-size: cover;
+  background-position: center;
+  background-color:lightslategray;
+}
+
+.register__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container form {
+  width: 50rem;
+  max-width: 100%;
+  width: 40%;
+  height: 60%;
+  z-index: 1;
+  animation: showlogInForm 1s;
+}
+
+/* Styling for the form */
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bg-blur {
+  backdrop-filter: blur(5px);
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+/* Form container */
+.form-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* Form title */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+  
+}
+
+/* Form label styling */
+.form-label {
+  font-weight: bold;
+}
+
+/* Submit button styling */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
